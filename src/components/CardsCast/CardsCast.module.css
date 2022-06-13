@@ -1,0 +1,39 @@
+.Wrap {
+}
+
+.List {
+  display: grid;
+  max-width: calc(100vw - 48px);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Item {
+  border: 1px solid #000000;
+  transition: transform 250ms ease-in-out;
+}
+
+.Item:hover {
+  transform: scale(1.02);
+}
+
+.Item div {
+  padding: 10px;
+}
+
+.Img {
+  width: 100%;
+}
+
+.Name {
+  margin-bottom: 5px;
+}
+
+.Character {
+}

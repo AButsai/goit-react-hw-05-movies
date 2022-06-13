@@ -1,0 +1,14 @@
+.Nav {
+}
+
+.NavLink {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 500;
+  color: inherit;
+  padding: 10px;
+}
+
+.activeNavLink {
+  color: blue;
+}

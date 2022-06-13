@@ -1,0 +1,65 @@
+.wrap {
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.img {
+  display: block;
+  width: 320px;
+  height: auto;
+}
+
+.contentWrap {
+  width: 600px;
+  padding: 20px;
+}
+
+.contentWrap p {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.subtext {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.links {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+.linksText {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.list {
+  padding-left: 30px;
+}
+
+.item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.link {
+  color: blue;
+}
