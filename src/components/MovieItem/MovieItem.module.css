@@ -1,0 +1,16 @@
+.Item {
+}
+
+.Link {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.Link:hover {
+  color: #0000ff;
+}
