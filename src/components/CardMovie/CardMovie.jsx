@@ -55,7 +55,7 @@ const CardMovie = ({ movie, children }) => {
 
 CardMovie.propTypes = {
   movie: PropTypes.shape({
-    poster_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
     original_title: PropTypes.string.isRequired,
     genres: PropTypes.arrayOf(
       PropTypes.shape({
