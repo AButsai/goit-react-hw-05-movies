@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { getMoviesInfo } from 'service/api';
 
-import { Status } from 'helper/ststus';
+import { Status } from 'helpers/helpers';
 import Loader from 'components/Loader';
 import CardsCast from 'components/CardsCast';
 

@@ -10,7 +10,7 @@ import {
 import { BsArrowLeftShort } from 'react-icons/bs';
 import Loader from 'components/Loader';
 import { getMovieDetails } from 'service/api';
-import { Status } from 'helper/ststus';
+import { Status } from 'helpers/helpers';
 import CardMovie from 'components/CardMovie';
 
 import s from './MovieDetailsPage.module.css';
