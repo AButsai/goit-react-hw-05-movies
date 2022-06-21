@@ -7,13 +7,13 @@ const CardReviews = ({ reviews }) => {
       {reviews.length === 0 ? (
         <p>There is no information about the cast...</p>
       ) : (
-        <div className={s.Wrap}>
-          <ul className={s.List}>
+        <div className={s.wrap}>
+          <ul className={s.list}>
             {reviews.map(({ id, author, content }) => (
-              <li key={id} className={s.Item}>
+              <li key={id} className={s.item}>
                 <div>
-                  <p className={s.Author}>Author: {author}</p>
-                  <p className={s.Content}>{content}</p>
+                  <p className={s.author}>Author: {author}</p>
+                  <p className={s.content}>{content}</p>
                 </div>
               </li>
             ))}

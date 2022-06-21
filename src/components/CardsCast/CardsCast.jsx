@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
+import { PATH_IMAGE, DEFAULT_IMAGE } from 'helpers/helpers';
 import s from './CardsCast.module.css';
-
-const PATH_IMAGE = 'https://image.tmdb.org/t/p/w1280';
-const defaultImage =
-  'https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805__340.png';
 
 const CardsCast = ({ cast }) => {
   return (
@@ -11,18 +8,18 @@ const CardsCast = ({ cast }) => {
       {cast.length === 0 ? (
         <p>There is no information about the cast...</p>
       ) : (
-        <div className={s.Wrap}>
-          <ul className={s.List}>
+        <div className={s.wrap}>
+          <ul className={s.list}>
             {cast.map(({ cast_id, profile_path, name, character }) => (
-              <li key={cast_id} className={s.Item}>
+              <li key={cast_id} className={s.item}>
                 <img
-                  src={profile_path ? PATH_IMAGE + profile_path : defaultImage}
+                  src={profile_path ? PATH_IMAGE + profile_path : DEFAULT_IMAGE}
                   alt={name}
-                  className={s.Img}
+                  className={s.img}
                 />
                 <div>
-                  <p className={s.Name}>{name}</p>
-                  <p className={s.Character}>Chracter: {character}</p>
+                  <p className={s.name}>{name}</p>
+                  <p className={s.character}>Chracter: {character}</p>
                 </div>
               </li>
             ))}

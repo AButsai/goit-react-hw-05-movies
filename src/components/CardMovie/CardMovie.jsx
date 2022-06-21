@@ -14,42 +14,40 @@ const CardMovie = ({ movie, children }) => {
     return '';
   }
 
-  function UserScore(count) {
+  function userScore(count) {
     return (count * 10).toFixed();
   }
 
   return (
-    <>
-      <div className={s.wrap}>
-        <div className={s.content}>
-          <img
-            src={PATH_IMAGE + poster_path}
-            alt={original_title}
-            className={s.img}
-          />
-          <div className={s.contentWrap}>
-            <p className={s.title}>{original_title}</p>
-            <p className={s.subtext}>User Score: {UserScore(vote_average)}%</p>
-            <p className={s.text}>Owerview</p>
-            <p className={s.subtext}>{overview}</p>
-            <p className={s.text}>Genres</p>
-            <p className={s.subtext}>{getGenres(genres)}</p>
-          </div>
-        </div>
-        <div className={s.links}>
-          <p className={s.linksText}>Additional information</p>
-          {children && (
-            <ul className={s.list}>
-              {children.map(child => (
-                <li key={child.props.children} className={s.item}>
-                  {child}
-                </li>
-              ))}
-            </ul>
-          )}
+    <div className={s.wrap}>
+      <div className={s.content}>
+        <img
+          src={PATH_IMAGE + poster_path}
+          alt={original_title}
+          className={s.img}
+        />
+        <div className={s.contentWrap}>
+          <p className={s.title}>{original_title}</p>
+          <p className={s.subtext}>User Score: {userScore(vote_average)}%</p>
+          <p className={s.text}>Owerview</p>
+          <p className={s.subtext}>{overview}</p>
+          <p className={s.text}>Genres</p>
+          <p className={s.subtext}>{getGenres(genres)}</p>
         </div>
       </div>
-    </>
+      <div className={s.links}>
+        <p className={s.linksText}>Additional information</p>
+        {children && (
+          <ul className={s.list}>
+            {children.map(child => (
+              <li key={child.props.children} className={s.item}>
+                {child}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
   );
 };
 

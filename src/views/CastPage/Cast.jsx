@@ -1,33 +1,39 @@
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 import { getMoviesInfo } from 'service/api';
+
 import { Status } from 'helpers/helpers';
 import Loader from 'components/Loader';
-import CardReviews from 'components/CardReviws/CardReviews';
+import CardsCast from 'components/CardsCast';
 
-const PARAMS = 'reviews';
+const PARAMS = 'credits';
 
-const Reviews = ({ movieId }) => {
-  const [reviews, setReviews] = useState(null);
+const Cast = ({ movieId }) => {
+  const [cast, setCast] = useState(null);
   const [status, setStatus] = useState(Status.IDLE);
 
   useEffect(() => {
     setStatus(Status.PENDING);
-    getMoviesInfo(movieId, PARAMS)
-      .then(data => {
-        setReviews(data.results);
+
+    async function getCast() {
+      try {
+        const data = await getMoviesInfo(movieId, PARAMS);
+
+        setCast(data.cast);
         setStatus(Status.RESOLVED);
-      })
-      .catch(error => {
+      } catch (_error) {
         setStatus(Status.RESOLVED);
-      });
+      }
+    }
+
+    getCast();
   }, [movieId]);
 
   return (
     <>
       {status === Status.PENDING && <Loader />}
 
-      {status === Status.RESOLVED && <CardReviews reviews={reviews} />}
+      {status === Status.RESOLVED && <CardsCast cast={cast} />}
 
       {status === Status.REJECTED && (
         <p>There is no information about the cast...</p>
@@ -36,8 +42,8 @@ const Reviews = ({ movieId }) => {
   );
 };
 
-Reviews.propTypes = {
+Cast.propTypes = {
   movieId: PropTypes.string.isRequired,
 };
 
-export default Reviews;
+export default Cast;

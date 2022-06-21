@@ -15,9 +15,11 @@ import CardMovie from 'components/CardMovie';
 
 import s from './MovieDetailsPage.module.css';
 
-const Cast = lazy(() => import('./Cast' /* webpackChunkName: "Cast" */));
+const Cast = lazy(() =>
+  import('../CastPage/Cast' /* webpackChunkName: "Cast" */)
+);
 const Reviews = lazy(() =>
-  import('./Reviews' /* webpackChunkName: "Reviews" */)
+  import('../ReviewsPage/Reviews' /* webpackChunkName: "Reviews" */)
 );
 
 const MovieDetailsPage = () => {
@@ -25,26 +27,30 @@ const MovieDetailsPage = () => {
   const [errors, setErrors] = useState(null);
   const [status, setStatus] = useState(Status.IDLE);
 
-  const lacation = useLocation();
+  const location = useLocation();
   const history = useHistory();
   const { movieId } = useParams();
   const { url, path } = useRouteMatch();
 
   useEffect(() => {
     setStatus(Status.PENDING);
-    getMovieDetails(movieId)
-      .then(data => {
+
+    async function getDetailsMovie() {
+      try {
+        const data = await getMovieDetails(movieId);
         setMovie(data);
         setStatus(Status.RESOLVED);
-      })
-      .catch(error => {
+      } catch (error) {
         setErrors(error);
         setStatus(Status.REJECTED);
-      });
+      }
+    }
+
+    getDetailsMovie();
   }, [movieId]);
 
   const onGoBack = () => {
-    history.push(lacation?.state?.from ?? '/');
+    history.push(location?.state?.from ?? '/');
   };
 
   return (
@@ -58,14 +64,20 @@ const MovieDetailsPage = () => {
           </button>
           <CardMovie movie={movie}>
             <NavLink
-              to={`${url}/cast`}
+              to={{
+                pathname: `${url}/cast`,
+                state: location.state,
+              }}
               className={s.link}
               activeClassName={s.activeLink}
             >
               Cast
             </NavLink>
             <NavLink
-              to={`${url}/reviews`}
+              to={{
+                pathname: `${url}/reviews`,
+                state: location.state,
+              }}
               className={s.link}
               activeClassName={s.activeLink}
             >

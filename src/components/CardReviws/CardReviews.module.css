@@ -1,14 +1,14 @@
-.Item {
+.item {
   margin-bottom: 20px;
 }
 
-.Author {
+.author {
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 10px;
 }
 
-.Content {
+.content {
   font-size: 14px;
   line-height: 1.3;
 }

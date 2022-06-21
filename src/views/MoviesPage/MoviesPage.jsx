@@ -14,7 +14,17 @@ const MoviesPage = () => {
       return;
     }
 
-    getMovie(query.toLowerCase()).then(setMovies);
+    const normalizedQuery = query.toLowerCase();
+
+    async function getMovieOne() {
+      try {
+        const data = await getMovie(normalizedQuery);
+        setMovies(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getMovieOne();
   }, [query]);
 
   const onSubmit = query => {

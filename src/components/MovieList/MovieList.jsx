@@ -5,7 +5,7 @@ import s from './MovieList.module.css';
 
 const MovieList = ({ movie }) => {
   return (
-    <ul className={s.List}>
+    <ul className={s.list}>
       {movie && movie.map(movie => <MovieItem key={movie.id} movie={movie} />)}
     </ul>
   );

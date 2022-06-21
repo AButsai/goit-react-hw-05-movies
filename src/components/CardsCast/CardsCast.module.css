@@ -1,7 +1,7 @@
-.Wrap {
+.wrap {
 }
 
-.List {
+.list {
   display: grid;
   max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -14,26 +14,26 @@
   margin-right: auto;
 }
 
-.Item {
+.item {
   border: 1px solid #000000;
   transition: transform 250ms ease-in-out;
 }
 
-.Item:hover {
+.item:hover {
   transform: scale(1.02);
 }
 
-.Item div {
+.item div {
   padding: 10px;
 }
 
-.Img {
+.img {
   width: 100%;
 }
 
-.Name {
+.name {
   margin-bottom: 5px;
 }
 
-.Character {
+.character {
 }
