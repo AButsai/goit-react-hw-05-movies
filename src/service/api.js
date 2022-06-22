@@ -2,9 +2,11 @@ import { getMovies } from './createConfigForRequest';
 
 export const getTrendingMovieAll = async () => {
   try {
-    const { data } = await getMovies('/trending/all/day', {});
+    const {
+      data: { results },
+    } = await getMovies('/trending/all/day', {});
 
-    return data.results;
+    return results;
   } catch (error) {
     return Promise.reject('There is no information about the movie yet...');
   }
@@ -12,11 +14,13 @@ export const getTrendingMovieAll = async () => {
 
 export const getMovie = async name => {
   try {
-    const { data } = await getMovies('/search/movie', {
+    const {
+      data: { results },
+    } = await getMovies('/search/movie', {
       params: { query: name },
     });
 
-    return data.results;
+    return results;
   } catch (error) {
     return Promise.reject('There is no information about the movie yet...');
   }

@@ -37,7 +37,3 @@ MovieItem.propTypes = {
 };
 
 export default MovieItem;
-
-// poster_path
-// title
-// name
